@@ -30,10 +30,9 @@ helm repo update
 
 # Get congiguration files
 wget https://github.com/fek1s/configs/blob/main/cluster/cluster-configuration.yaml
-wget https://github.com/kubesphere/ks-installer/releases/download/v3.4.1/kubesphere-installer.yaml
 
 # Apply Kubesphere installer
-kubectl apply -f kubesphere-installer.yaml
+kubectl apply -f https://github.com/kubesphere/ks-installer/releases/download/v3.4.1/kubesphere-installer.yaml
 
 # Apply Kubesphere cluster configuration
 kubectl apply -f cluster-configuration.yaml
