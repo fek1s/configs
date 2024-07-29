@@ -29,7 +29,7 @@ helm repo add kubesphere https://charts.kubesphere.io/main
 helm repo update
 
 # Get congiguration files
-wget https://github.com/fek1s/configs/blob/main/cluster/cluster-configuration.yaml
+wget https://raw.githubusercontent.com/fek1s/configs/main/cluster/cluster-configuration.yaml
 
 # Apply Kubesphere installer
 kubectl apply -f https://github.com/kubesphere/ks-installer/releases/download/v3.4.1/kubesphere-installer.yaml
