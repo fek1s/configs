@@ -28,10 +28,18 @@ helm version
 helm repo add kubesphere https://charts.kubesphere.io/main
 helm repo update
 
+# Get congiguration files
+wget https://github.com/fek1s/configs/blob/main/cluster/cluster-configuration.yaml
+wget https://github.com/kubesphere/ks-installer/releases/download/v3.4.1/kubesphere-installer.yaml
+
 # Apply Kubesphere installer
-kubectl apply -f https://github.com/kubesphere/ks-installer/releases/download/v3.4.1/kubesphere-installer.yaml
+kubectl apply -f kubesphere-installer.yaml
 
 # Apply Kubesphere cluster configuration
-kubectl apply -f https://github.com/kubesphere/ks-installer/releases/download/v3.3.0/cluster-configuration.yaml
+kubectl apply -f cluster-configuration.yaml
 
 echo "K3s and Kubesphere installation complete."
+
+sleep 60 
+
+kubectl logs -n kubesphere-system $(kubectl get pod -n kubesphere-system -l 'app in (ks-install, ks-installer)' -o jsonpath='{.items[0].metadata.name}') -f
