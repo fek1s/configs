@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: surrealdb-deployment
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: surrealdb
+  template:
+    metadata:
+      labels:
+        app: surrealdb
+    spec:
+      containers:
+      - name: surrealdb
+        image: surrealdb/surrealdb:latest
+        args: ["start", "--user", "root", "--pass", "root", "--bind", "0.0.0.0:8000", "memory"] # Adjust arguments as needed
+        ports:
+        - containerPort: 8000
+          name: web
+          protocol: TCP
+        env:
+        - name: SURREAL_USER
+          value: "root"
+        - name: SURREAL_PASS
+          value: "root"
