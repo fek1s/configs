@@ -7,7 +7,7 @@ apt update && apt upgrade -y
 apt install curl -y
 
 # Install K3s
-curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION="v1.23.13+k3s1" sh -
+curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION="v1.24.7+k3s1" sh -
 
 # Verify K3s installation
 /usr/local/bin/k3s --version
