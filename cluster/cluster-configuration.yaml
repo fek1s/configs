@@ -142,9 +142,9 @@ spec:
       type: none # Specify "weave-scope" for this field to enable Service Topology. "none" means that Service Topology is disabled.
   openpitrix: # An App Store that is accessible to all platform tenants. You can use it to manage apps across their entire lifecycle.
     store:
-      enabled: true # Enable or disable the KubeSphere App Store.
+      enabled: false # Enable or disable the KubeSphere App Store.
   servicemesh:         # (0.3 Core, 300 MiB) Provide fine-grained traffic management, observability and tracing, and visualized traffic topology.
-    enabled: true     # Base component (pilot). Enable or disable KubeSphere Service Mesh (Istio-based).
+    enabled: false     # Base component (pilot). Enable or disable KubeSphere Service Mesh (Istio-based).
     istio:  # Customizing the istio installation configuration, refer to https://istio.io/latest/docs/setup/additional-setup/customize-installation/
       components:
         ingressGateways:
